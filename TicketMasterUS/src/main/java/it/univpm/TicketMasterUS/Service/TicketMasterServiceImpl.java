@@ -1,7 +1,15 @@
 package it.univpm.TicketMasterUS.Service;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import it.univpm.TicketMasterUS.Exceptions.EmptyFieldExcetpion;
@@ -21,18 +29,11 @@ import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
 @Service
 public class TicketMasterServiceImpl implements TicketMasterService {
 
-	/**
-	 * apiKey è la chiave necessaria per ottenere informazioni dall'API di TicketMaster.
-	 */
-	private String apiKey = "vcxnJP2zGc6QpAUZjLjuEc7BIQIzA8kv";
 	
-
-	public JSONObject getEvents(String state_code) throws WrongStateCodeException {
-		
+	public JSONArray getEvents(String state_code){
 		
 		return null;
 	}
-
 
 	public JSONArray getPromoters(String state_code) throws WrongStateCodeException {
 		return null;

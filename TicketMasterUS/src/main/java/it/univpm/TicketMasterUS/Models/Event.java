@@ -24,6 +24,21 @@ public class Event {
 	public Event() {
 		super();
 	}
+	
+	/**
+	 * Costrutture dell'oggetto (completo).
+	 * @param name
+	 * @param description
+	 * @param url
+	 * @param data
+	 */
+	public Event(String name, String description, String url, String data) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.url = url;
+		this.data = data;
+	}
 
 	/**
 	 * Costrutture dell'oggetto (completo).
