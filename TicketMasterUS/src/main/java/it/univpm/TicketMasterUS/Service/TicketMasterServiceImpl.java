@@ -32,7 +32,25 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 	
 	public JSONArray getEvents(String state_code){
 		
-		return null;
+		//if (state_code != "CA" || state_code != "FL" || state_code != "MA" || state_code != "NY")
+		//	throw new WrongStateCodeException();
+
+		Event events = new Event();
+		Vector<Event> evento = new Vector<>();
+		
+		JSONObject jo = new JSONObject();
+		JSONArray ja = new JSONArray();		
+
+		evento = d.EventsInfo(state_code);
+
+		for (Event e: evento) {			
+			jo = p.eventToJSONObject(e);
+			ja.add(jo);
+		}
+		
+		return ja;
+
+
 	}
 
 	public JSONArray getPromoters(String state_code) throws WrongStateCodeException {
