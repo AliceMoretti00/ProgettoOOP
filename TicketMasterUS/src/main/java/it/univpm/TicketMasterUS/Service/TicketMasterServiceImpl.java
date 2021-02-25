@@ -28,13 +28,11 @@ import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
 
 @Service
 public class TicketMasterServiceImpl implements TicketMasterService {
-
+	
+	Downloader d = new Downloader();
+	Parser p = new Parser();
 	
 	public JSONArray getEvents(String state_code){
-		
-		Downloader d = new Downloader();
-		Parser p = new Parser();
-		
 		//if (state_code != "CA" || state_code != "FL" || state_code != "MA" || state_code != "NY")
 		//	throw new WrongStateCodeException();
 
