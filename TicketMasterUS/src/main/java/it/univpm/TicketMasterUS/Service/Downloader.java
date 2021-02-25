@@ -70,17 +70,19 @@ public class Downloader {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		return eventsUS;
 	}
 
 	/**
 	 * Metodo che popola la mia struttura dati di eventi e le relative informazioni scaricate dalla API di TicketMaster 
 	 * @param state_code
+	 * @return Vettore di eventi
 	 */
-	public void EventiInfo(String state_code) {
+	public Vector<Event>  EventsInfo(String state_code) {
 
 		JSONArray eventUS = downloadEvents(state_code);
-
+		
 		for(Object o: eventUS) 
 		{ 
 			JSONObject e = (JSONObject) o;
@@ -107,6 +109,7 @@ public class Downloader {
 			events.add(event);
 		}
 
+		return events;
 	}
 
 	/**
@@ -116,9 +119,8 @@ public class Downloader {
 	 */
 	public Vector<Promoter> PromotersInfo(JSONObject e) {
 
-		Vector<Promoter> p = null;
-
-		Promoter promoter;
+		Vector<Promoter> p = new Vector<>();
+		Promoter promoter = new Promoter();
 		String name = "";
 		String ID = "";
 
@@ -130,7 +132,8 @@ public class Downloader {
 			name = "default promoter";
 			ID = "000";
 
-			promoter = new Promoter(name,ID);
+			promoter.setID(ID);
+			promoter.setName(name);
 			p.add(promoter);
 
 		}else 
@@ -142,7 +145,8 @@ public class Downloader {
 				ID = (String) obj.get("id");
 				name = (String) obj.get("name");	
 
-				promoter = new Promoter(name,ID);
+				promoter.setID(ID);
+				promoter.setName(name);
 				p.add(promoter);
 			}
 		}
@@ -158,7 +162,9 @@ public class Downloader {
 	private Place PlaceInfo(String state_code) {
 		
 		Place place = new Place();
-
+		
+		place.setState_code(state_code);
+		
 		switch(state_code) {
 		case "CA": place.setState("California");break;
 		case "FL": place.setState("Florida");break;
@@ -172,7 +178,7 @@ public class Downloader {
 	/**
 	 * Metodo che restituisce un oggetto della classe Genre di un certo evento 
 	 * @param JSONObject che rappresenta l'evento
-	 * * @return genere dell'evento
+	 * @return genere dell'evento
 	 */
 	private Genre GenereInfo(JSONObject e) {
 
@@ -186,7 +192,7 @@ public class Downloader {
 			
 			JSONObject obj = (JSONObject) g;
 			
-			JSONObject o = (JSONObject) obj.get("genre");
+			JSONObject o = (JSONObject) obj.get("segment");
 			ID = (String)o.get("id");
 			name = (String)o.get("name");
 			
