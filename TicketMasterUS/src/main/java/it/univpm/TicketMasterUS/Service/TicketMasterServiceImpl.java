@@ -32,6 +32,9 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 	
 	public JSONArray getEvents(String state_code){
 		
+		Downloader d = new Downloader();
+		Parser p = new Parser();
+		
 		//if (state_code != "CA" || state_code != "FL" || state_code != "MA" || state_code != "NY")
 		//	throw new WrongStateCodeException();
 
