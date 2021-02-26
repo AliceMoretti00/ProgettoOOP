@@ -36,8 +36,10 @@ public class StatsPromoter implements Stats {
 						daAggiungere = true;
 				}
 
-			if(daAggiungere) 
+			if(daAggiungere) { 
 				events_stats.add(event);
+				daAggiungere = false;
+			}
 		}
 	}
 
@@ -69,7 +71,7 @@ public class StatsPromoter implements Stats {
 			genre = event.getGenre().getName();
 
 			switch(genre) {
-			case "Art&Theatre": 
+			case "Art & Theatre": 
 				numArt ++;
 				break;
 			case "Sport":
@@ -118,13 +120,13 @@ public class StatsPromoter implements Stats {
 		if(pFL) numState++;
 		if(pMA) numState++;
 		if(pNY) numState++;
-		
+
 		return numState;
 
 	}
 
 	public JSONObject compliteStats() {
-		
+
 
 		JSONObject o = new JSONObject();
 		String all_id = "";

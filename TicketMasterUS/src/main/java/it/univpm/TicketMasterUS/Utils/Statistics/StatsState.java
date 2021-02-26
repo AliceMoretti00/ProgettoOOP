@@ -76,7 +76,7 @@ public class StatsState implements Stats {
 			genre = event.getGenre().getName();
 
 			switch(genre) {
-			case "Art&Theatre": 
+			case "Arts & Theatre": 
 				for(int i = 0; i < event.getPromoters().size(); i++) {
 					if(!Art_id.contains(event.getPromoters().get(i).getID())) numArt++;
 					Art_id.add(event.getPromoters().get(i).getID());

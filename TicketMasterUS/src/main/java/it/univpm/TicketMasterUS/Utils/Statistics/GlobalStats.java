@@ -5,6 +5,7 @@ import java.util.Vector;
 import org.json.simple.JSONObject;
 
 import it.univpm.TicketMasterUS.Models.Event;
+import it.univpm.TicketMasterUS.Service.Downloader;
 
 /**
  * Classe che calcola le statistiche globali relative a tutti gli eventi 
@@ -77,25 +78,21 @@ public class GlobalStats {
 		int numFL = 0;
 		int numMA = 0;
 		int numNY = 0;
+		
+		Downloader d = new Downloader();
+		
+		StatsState sCA = new StatsState(d.EventsInfo("CA"), "CA");
+		numCA = sCA.calcoloTot();
+		
+		StatsState sFL = new StatsState(d.EventsInfo("FL"), "FL");
+		numFL = sFL.calcoloTot();
 
-		for(Event e: events) {
-			state_code = e.getPlace().getState_code();
-			switch(state_code) {
-			case "CA": 
-				numCA += e.getPromoters().size(); 
-				break;
-			case "FL": 
-				numFL += e.getPromoters().size(); 
-				break;
-			case "MA": 
-				numMA += e.getPromoters().size(); 
-				break;
-			case "NY":
-				numNY += e.getPromoters().size(); 
-				break;
-			}	
-		}
+		StatsState sMA = new StatsState(d.EventsInfo("MA"), "MA");
+		numMA = sMA.calcoloTot();
 
+		StatsState sNY = new StatsState(d.EventsInfo("NY"), "NY");
+		numNY = sNY.calcoloTot();
+		
 		int[] n = {numCA, numFL, numMA, numNY};
 		int min = n[0]; int max = n[0];
 		for(int i = 1; i < n.length; i++) {

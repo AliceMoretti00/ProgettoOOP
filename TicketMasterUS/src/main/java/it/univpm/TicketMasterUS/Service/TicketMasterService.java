@@ -16,5 +16,6 @@ public interface TicketMasterService {
 	public abstract JSONArray getPromoters(String state_code)throws WrongStateCodeException;
 	public abstract JSONArray getStatsState();
 	public abstract JSONObject getStatsPromoters(Vector<String> ID)throws WrongIdPromoterException, EmptyFieldExcetpion;
+	public abstract JSONArray getGlobalStats();
 	public abstract JSONArray getFilterStats(JSONObject filters) throws WrongStateCodeException, WrongIdPromoterException, WrongPeriodException;
 }

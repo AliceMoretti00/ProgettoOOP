@@ -11,6 +11,7 @@ import it.univpm.TicketMasterUS.Exceptions.WrongIdPromoterException;
 import it.univpm.TicketMasterUS.Exceptions.WrongPeriodException;
 import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
 import it.univpm.TicketMasterUS.Models.Event;
+import it.univpm.TicketMasterUS.Utils.Statistics.GlobalStats;
 import it.univpm.TicketMasterUS.Utils.Statistics.StatsPromoter;
 import it.univpm.TicketMasterUS.Utils.Statistics.StatsState;
 
@@ -118,7 +119,24 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 		return jo;
 	}
 
+	public JSONArray getGlobalStats() {
 
+		JSONArray ja = new JSONArray();
+		Vector<Event> e = new Vector<>();
+		
+		e.addAll(d.EventsInfo("CA"));
+		e.addAll(d.EventsInfo("NY"));
+		e.addAll(d.EventsInfo("MA"));
+		e.addAll(d.EventsInfo("FL"));
+		
+		GlobalStats stats = new GlobalStats();
+		
+		ja.add(stats.min_maxEvent(e));
+		ja.add(stats.min_maxPromoter(e));
+		
+		return ja;
+	}
+	
 	public JSONArray getFilterStats(JSONObject filters) throws WrongStateCodeException,
 	WrongIdPromoterException, WrongPeriodException {
 		return null;
