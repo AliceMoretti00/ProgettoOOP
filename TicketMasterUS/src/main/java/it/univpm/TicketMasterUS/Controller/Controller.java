@@ -42,6 +42,13 @@ public class Controller {
 		return new ResponseEntity<>(service.getStatsState(), HttpStatus.OK);
 
 	}
+	
+	@PostMapping(value="/globalStats")
+	public ResponseEntity<Object> globalStats() {
+
+		return new ResponseEntity<>(service.getGlobalStats(), HttpStatus.OK);
+
+	}
 
 	@PostMapping(value="/statsPromoter")
 	public ResponseEntity<Object> statsPromoter(@RequestBody String body) throws WrongIdPromoterException, EmptyFieldExcetpion, ParseException {
