@@ -71,7 +71,7 @@ public class StatsPromoter implements Stats {
 			genre = event.getGenre().getName();
 
 			switch(genre) {
-			case "Art & Theatre": 
+			case "Arts & Theatre": 
 				numArt ++;
 				break;
 			case "Sport":
