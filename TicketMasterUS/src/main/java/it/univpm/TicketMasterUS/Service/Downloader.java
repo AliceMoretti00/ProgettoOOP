@@ -22,7 +22,6 @@ public class Downloader {
 	 */
 	private String apiKey = "vcxnJP2zGc6QpAUZjLjuEc7BIQIzA8kv";
 
-	Vector<Event> events = new Vector<>();
 
 	/**
 	 * Metodo chepermette di scaricare i tutti dati relativi agli eventi che hanno luogo in un determinato stato
@@ -34,7 +33,7 @@ public class Downloader {
 	public JSONArray downloadEvents(String state_code){
 		JSONArray eventsUS = new JSONArray();
 
-		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=5&countryCode=US&stateCode="+ state_code +"&apikey=" + apiKey;
+		String url="https://app.ticketmaster.com/discovery/v2/events.json?size=100&page=1&countryCode=US&stateCode="+ state_code +"&apikey=" + apiKey;
 
 		try {
 			HttpURLConnection connection= (HttpURLConnection) new URL(url).openConnection();
@@ -79,9 +78,11 @@ public class Downloader {
 	 * @param state_code
 	 * @return Vettore di eventi
 	 */
-	public Vector<Event>  EventsInfo(String state_code) {
+	public Vector<Event> EventsInfo(String state_code) {
 
 		JSONArray eventUS = downloadEvents(state_code);
+		
+		Vector<Event> events = new Vector<>();
 		
 		for(Object o: eventUS) 
 		{ 
@@ -90,17 +91,17 @@ public class Downloader {
 			Event event;
 
 			String name = (String) e.get("name");
-			String description = (String) e.get("description");
+			//String description = (String) e.get("description");
 			String url = (String) e.get("url");
 
-			if(description == null)
-				description="Description not available";
+			/*if(description == null)
+				description="Description not available";*/
 
 			JSONObject d = (JSONObject) e.get("dates");
 			JSONObject start= (JSONObject) d.get("start");
 			String data = (String) start.get("localDate");
 
-			event = new Event(name,description,url,data);
+			event = new Event(name,url,data);
 
 			event.setPromoters(PromotersInfo(e));
 			event.setPlace(PlaceInfo(state_code));

@@ -11,7 +11,7 @@ import java.util.Vector;
 public class Event {
 
 	private String name;
-	private String description;
+	// private String description;
 	private String url;
 	private String data;
 	private Vector<Promoter> promoters;
@@ -28,14 +28,12 @@ public class Event {
 	/**
 	 * Costrutture dell'oggetto (completo).
 	 * @param name
-	 * @param description
 	 * @param url
 	 * @param data
 	 */
-	public Event(String name, String description, String url, String data) {
+	public Event(String name, String url, String data) {
 		super();
 		this.name = name;
-		this.description = description;
 		this.url = url;
 		this.data = data;
 	}
@@ -43,18 +41,16 @@ public class Event {
 	/**
 	 * Costrutture dell'oggetto (completo).
 	 * @param name
-	 * @param description
 	 * @param url
 	 * @param data
 	 * @param promoters
 	 * @param place
 	 * @param genre
 	 */
-	public Event(String name, String description, String url, String data, Vector<Promoter> promoters, Place place,
+	public Event(String name, String url, String data, Vector<Promoter> promoters, Place place,
 			Genre genre) {
 		super();
 		this.name = name;
-		this.description = description;
 		this.url = url;
 		this.data = data;
 		this.promoters = promoters;
@@ -78,21 +74,13 @@ public class Event {
 		this.name = name;
 	}
 
-	/**
-     * Metodo che restituisce la descrizione dell'evento.
-     * @return Stringa che rappresenta la descrizione dell'evento
-     */
+	/*
 	public String getDescription() {
 		return description;
 	}
-
-	/**
-     * Metodo che permette di settare la descrizione dell'evento.
-     * @param Stringa che rappresenta la descrizione dell'evento
-     */
 	public void setDescription(String description) {
 		this.description = description;
-	}
+	}*/
 
 	/**
      * Metodo che restitusce l'url della pagina web dell'evento.
@@ -191,7 +179,7 @@ public class Event {
 	 */
 	@Override
 	public String toString() {
-		return "Event [Name=" + name + ", Description=" + description + ", URL=" + url + ", Data=" + data
+		return "Event [Name=" + name + ", URL=" + url + ", Data=" + data
 				+ ", Promoters=" + VectortoString(promoters) + ", " + place + ", " + genre + "]";
 	}
 	
@@ -213,11 +201,6 @@ public class Event {
 			if (other.data != null)
 				return false;
 		} else if (!data.equals(other.data))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
 			return false;
 		if (genre == null) {
 			if (other.genre != null)

@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import it.univpm.TicketMasterUS.Exceptions.EmptyFieldExcetpion;
+import it.univpm.TicketMasterUS.Exceptions.ParamException;
 import it.univpm.TicketMasterUS.Exceptions.WrongIdPromoterException;
 import it.univpm.TicketMasterUS.Exceptions.WrongPeriodException;
 import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
@@ -17,5 +18,5 @@ public interface TicketMasterService {
 	public abstract JSONArray getStatsState();
 	public abstract JSONObject getStatsPromoters(Vector<String> ID)throws WrongIdPromoterException, EmptyFieldExcetpion;
 	public abstract JSONArray getGlobalStats();
-	public abstract JSONArray getFilterStats(JSONObject filters) throws WrongStateCodeException, WrongIdPromoterException, WrongPeriodException;
+	public abstract JSONArray getFilterStats(JSONObject filters) throws WrongStateCodeException, WrongPeriodException, EmptyFieldExcetpion, ParamException;
 }

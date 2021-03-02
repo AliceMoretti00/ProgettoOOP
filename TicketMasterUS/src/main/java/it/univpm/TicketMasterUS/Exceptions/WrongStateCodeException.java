@@ -7,8 +7,6 @@ package it.univpm.TicketMasterUS.Exceptions;
  */
 
 public class WrongStateCodeException extends Exception {
-	
-	private String message;
 
 	//parametro richiesto dell'interfaccia Serializable implementata dalla classe Exception
 	private static final long serialVersionUID = 1L;
@@ -17,17 +15,8 @@ public class WrongStateCodeException extends Exception {
 	 * Costrutture dell'oggetto.
 	 */
 	public WrongStateCodeException() {
-		super();
-		this.message = "Lo statecode inserito non è tra quelli disponibili\n"
-				+ "Gli stateCode disponibili sono: \nCA(California),\nFL(Florida),\nMa(Massachusetts),\nNY(New York)";
+		super("Lo statecode inserito non è tra quelli disponibili\n"
+				+ "Gli stateCode disponibili sono: \nCA(California),\nFL(Florida),\nMa(Massachusetts),\nNY(New York)");
 	}
 
-	/**
-	 * Metodo che restituisce un messaggio di errore passato dal costruttore quando viene lanciata un'eccezione WrongStateCodeException.
-	 * @return Stringa che contiene il messaggio d'errore da stampare.
-	 */
-	public String getMessage() {
-		return message;
-	}
-	
 }

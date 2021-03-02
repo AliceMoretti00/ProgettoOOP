@@ -16,6 +16,11 @@ public class StatsState implements Stats {
 	public Vector<Event> events_stats= new Vector<>();
 
 	private String state_code;
+	
+	public StatsState(Vector<Event> events_stats) {
+		super();
+		this.events_stats = events_stats;
+	}
 
 	/**
 	 * Costrutture dell'oggetto (completo).
@@ -82,7 +87,7 @@ public class StatsState implements Stats {
 					Art_id.add(event.getPromoters().get(i).getID());
 				}
 				break;
-			case "Sport":
+			case "Sports":
 				for(int i = 0; i < event.getPromoters().size(); i++) {
 					if(!Sport_id.contains(event.getPromoters().get(i).getID())) numSport++;
 					Sport_id.add(event.getPromoters().get(i).getID());

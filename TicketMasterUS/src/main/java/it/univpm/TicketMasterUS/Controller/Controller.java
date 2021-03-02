@@ -11,7 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import it.univpm.TicketMasterUS.Exceptions.EmptyFieldExcetpion;
+import it.univpm.TicketMasterUS.Exceptions.ParamException;
 import it.univpm.TicketMasterUS.Exceptions.WrongIdPromoterException;
+import it.univpm.TicketMasterUS.Exceptions.WrongPeriodException;
 import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
 import it.univpm.TicketMasterUS.Service.Parser;
 import it.univpm.TicketMasterUS.Service.TicketMasterService;
@@ -42,7 +44,7 @@ public class Controller {
 		return new ResponseEntity<>(service.getStatsState(), HttpStatus.OK);
 
 	}
-	
+
 	@PostMapping(value="/globalStats")
 	public ResponseEntity<Object> globalStats() {
 
@@ -57,7 +59,7 @@ public class Controller {
 		Vector<String> promoters = new Vector<>();
 		JSONObject jo = new JSONObject();
 		try {
-			
+
 			jo =(JSONObject) JSONValue.parseWithException(body);
 
 		} catch(ParseException e){
@@ -66,12 +68,35 @@ public class Controller {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		if(jo.isEmpty()) throw new EmptyFieldExcetpion();
 
-		promoters = p.filterPromoter(jo);
+		promoters = p.infoPromoter(jo);
 
 		return new ResponseEntity<>(service.getStatsPromoters(promoters), HttpStatus.OK);
+
+	}
+
+	@PostMapping(value="/filteredStats")
+	public ResponseEntity<Object> filteredStats(@RequestBody String body) throws WrongIdPromoterException, EmptyFieldExcetpion,
+	ParseException, WrongStateCodeException, WrongPeriodException, ParamException {
+
+		JSONObject jo = new JSONObject();
+		try {
+
+			jo =(JSONObject) JSONValue.parseWithException(body);
+
+		} catch(ParseException e){
+			e.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		if(jo.isEmpty()) throw new EmptyFieldExcetpion();
+
+
+		return new ResponseEntity<>(service.getFilterStats(jo), HttpStatus.OK);
 
 	}
 

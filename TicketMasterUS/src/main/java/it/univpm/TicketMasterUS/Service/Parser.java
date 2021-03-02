@@ -16,9 +16,6 @@ import it.univpm.TicketMasterUS.Models.Event;
  */
 public class Parser {
 
-	Event event = new Event();
-
-
 	public JSONObject stringToJSONObject(String s) {
 		JSONObject object = new JSONObject();
 		
@@ -34,15 +31,15 @@ public class Parser {
 		JSONObject object = new JSONObject();
 
 		object.put("name", event.getName());
-		object.put("description", event.getDescription());
+		//object.put("description", event.getDescription());
 		object.put("url", event.getUrl());
 		object.put("data", event.getData());
 
 		JSONArray a = new JSONArray();
 		for(int i = 0; i < event.getPromoters().size(); i++) {
 			JSONObject promoter = new JSONObject();
-			promoter.put("name_promoter", event.getPromoters().get(i).getName());
-			promoter.put("ID_promoter", event.getPromoters().get(i).getID());
+			promoter.put("name promoter", event.getPromoters().get(i).getName());
+			promoter.put("ID promoter", event.getPromoters().get(i).getID());
 			a.add(promoter);
 		}
 
@@ -50,13 +47,13 @@ public class Parser {
 
 		JSONObject place = new JSONObject();
 		place.put("state", event.getPlace().getState());
-		place.put("statecode", event.getPlace().getState_code());
+		place.put("state code", event.getPlace().getState_code());
 
 		object.put("place", place);
 
 		JSONObject genre = new JSONObject();
-		genre.put("ID_genre", event.getGenre().getID());
-		genre.put("name_genre", event.getGenre().getName());
+		genre.put("ID genre", event.getGenre().getID());
+		genre.put("name genre", event.getGenre().getName());
 
 		object.put("genre", genre);
 
@@ -64,18 +61,18 @@ public class Parser {
 
 	}
 
-	public Vector<String> filterStete(JSONObject obj)throws WrongStateCodeException{
+	public Vector<String> infoStete(JSONObject obj)throws WrongStateCodeException{
 
 		Vector<String> state_codeToFilter = new Vector<>();
 
-		JSONArray ja = (JSONArray)(obj.get("state")); 
+		JSONArray ja = (JSONArray)(obj.get("State")); 
 		String s = "";
 
 		for(Object jo : ja)
 		{
 			JSONObject o = (JSONObject) jo;
 
-			s = (String) o.get("state_code");
+			s = (String) o.get("state code");
 			if(!(s.equals("CA") || s.equals("MA") || s.equals("FL") || s.equals("NY")))
 				throw new WrongStateCodeException();
 
@@ -84,7 +81,7 @@ public class Parser {
 		return state_codeToFilter;
 	}
 
-	public Vector<String> filterPromoter(JSONObject obj){
+	public Vector<String> infoPromoter(JSONObject obj) {
 
 		Vector<String> promoterFilter = new Vector<>();
 
@@ -102,7 +99,7 @@ public class Parser {
 		return promoterFilter;
 	}
 	
-	public Vector<String> filterGenre(JSONObject obj){
+	public Vector<String> infoGenre(JSONObject obj){
 
 		Vector<String> genreFilter = new Vector<>();
 
@@ -113,7 +110,7 @@ public class Parser {
 		{
 			JSONObject o = (JSONObject) jo;
 
-			s = (String) o.get("ID");
+			s = (String) o.get("name genre");
 
 			genreFilter.add(s);
 		}

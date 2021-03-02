@@ -14,9 +14,14 @@ import it.univpm.TicketMasterUS.Models.Promoter;
  */
 public class StatsPromoter implements Stats {
 
-	public Vector<Event> events_stats= new Vector<>();
+	private Vector<Event> events_stats= new Vector<>();
 
 	private Vector<String> id_promoter = new Vector<>();
+
+	public StatsPromoter(Vector<Event> events_stats) {
+		super();
+		this.events_stats = events_stats;
+	}
 
 	/**
 	 * Costrutture dell'oggetto (completo).
@@ -30,15 +35,15 @@ public class StatsPromoter implements Stats {
 
 		//costruisco il mio vettore di eventi selezionando solo quelli che hanno uno dei promoter specificati
 		for(Event event: e) {
-			for(Promoter p: event.getPromoters())
+			for(Promoter p: event.getPromoters()) {
 				for(String id: id_promoter) {
 					if(p.getID().equals(id))
 						daAggiungere = true;
 				}
-
-			if(daAggiungere) { 
-				events_stats.add(event);
-				daAggiungere = false;
+				if(daAggiungere ) { 
+					events_stats.add(event);
+					daAggiungere = false;
+				}
 			}
 		}
 	}
@@ -48,7 +53,13 @@ public class StatsPromoter implements Stats {
 	 * @return numero totale dei eventi che verificano la condizione
 	 */
 	public int calcoloTot() {
-		return events_stats.size();
+		
+		Vector<Event> event= new Vector<>();
+		for(Event e: events_stats)
+			if(!event.contains(e))  
+				event.add(e);
+		
+		return event.size();
 	}
 
 	/**
@@ -67,14 +78,19 @@ public class StatsPromoter implements Stats {
 		int numFilm = 0;
 		int numAltro = 0; 
 
-		for(Event event: events_stats) {
-			genre = event.getGenre().getName();
+		Vector<Event> event= new Vector<>();
+		for(Event e: events_stats)
+			if(!event.contains(e))  
+				event.add(e);
+		
+		for(Event e: event) {
+			genre = e.getGenre().getName();
 
 			switch(genre) {
 			case "Arts & Theatre": 
 				numArt ++;
 				break;
-			case "Sport":
+			case "Sports":
 				numSport ++;
 				break;
 			case "Music":
@@ -110,11 +126,13 @@ public class StatsPromoter implements Stats {
 		boolean pMA = false;
 		boolean pNY = false;
 
-		for(Event e: events_stats)
+		for(Event e: events_stats) {
+			
 			if(e.getPlace().getState_code().equals("CA")) pCA = true;
-			else if(e.getPlace().getState_code().equals("FL")) pFL = true;
-			else if(e.getPlace().getState_code().equals("MA")) pMA = true;
-			else if(e.getPlace().getState_code().equals("NY")) pNY = true;
+			if(e.getPlace().getState_code().equals("FL")) pFL = true;
+			if(e.getPlace().getState_code().equals("MA")) pMA = true;
+			if(e.getPlace().getState_code().equals("NY")) pNY = true;
+		}
 
 		if(pCA) numState++;
 		if(pFL) numState++;
