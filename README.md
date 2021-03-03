@@ -49,7 +49,7 @@ Gli stateCode utilizzabili sono i seguenti:
 La rotta genera un'eccezione se non viene inserito uno di questi stateCode
 
 ## 2.   /promoters
-La seconda rotta restituisce un JSONObject di questo tipo, cioè contenente Id e nome del promoter che sponsorizza l'evento. Nel caso in cui non venga specificato lo stateCode dall'utente, l'applicazione restituisce i dati relativi a New York.
+La seconda rotta restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano Id e nome del promoter che sponsorizzano gli eventi. Nel caso in cui non venga specificato lo stateCode dall'utente, l'applicazione restituisce i dati relativi a New York.
 Gli stateCode utilizzabili sono i seguenti:
 1. CA per la California
 2. FL per la Florida
