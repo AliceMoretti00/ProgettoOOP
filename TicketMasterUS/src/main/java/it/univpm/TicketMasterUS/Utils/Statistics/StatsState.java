@@ -21,7 +21,7 @@ public class StatsState implements Stats {
 	
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Vettore di eventi.
+	 * @param events_stats Vettore di eventi.
 	 */
 	public StatsState(Vector<Event> events_stats) {
 		super();
@@ -30,8 +30,8 @@ public class StatsState implements Stats {
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Vettore di eventi.
-	 * @param Stringa che rappresenta lo state code di uno stato.
+	 * @param e Vettore di eventi.
+	 * @param state_code Stringa che rappresenta lo state code di uno stato.
 	 */
 	public StatsState(Vector<Event> e, String state_code) {
 		super();

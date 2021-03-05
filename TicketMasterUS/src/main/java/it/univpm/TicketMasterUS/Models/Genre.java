@@ -40,10 +40,10 @@ public class Genre {
 	
 	/**
      * Metodo che permette di settare l'ID del genere di un evento.
-     * @param Stringa che rappresenta l'ID del genere.
+     * @param ID Stringa che rappresenta l'ID del genere.
      */
-	public void setID(String iD) {
-		ID = iD;
+	public void setID(String ID) {
+		this.ID = ID;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class Genre {
 	
 	/**
      * Metodo che permette di settare il nome del genere di un evento.
-     * @param Stringa che rappresenta il nome del genere.
+     * @param name Stringa che rappresenta il nome del genere.
      */
 	public void setName(String name) {
 		this.name = name;

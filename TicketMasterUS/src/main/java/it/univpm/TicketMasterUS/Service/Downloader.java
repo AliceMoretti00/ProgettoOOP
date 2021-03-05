@@ -24,7 +24,7 @@ public class Downloader {
 
 
 	/**
-	 * apiKey è la chiave necessaria per ottenere informazioni dall'API di TicketMaster.
+	 * apiKey e' la chiave necessaria per ottenere informazioni dall'API di TicketMaster.
 	 */
 	private String apiKey = "vcxnJP2zGc6QpAUZjLjuEc7BIQIzA8kv";
 
@@ -81,7 +81,7 @@ public class Downloader {
 	/**
 	 * Metodo che popola la mia struttura dati di eventi con le relative informazioni,
 	 * selezionando solo quelle di interesse tra tutte quelle scaricate con il metodo downloadEvents.
-	 * @param Stringa che rappresenta il codice postale che identifica lo stato.
+	 * @param state_code codice postale che identifica lo stato.
 	 * @return Vettore di eventi.
 	 */
 	public Vector<Event> EventsInfo(String state_code) {
@@ -121,7 +121,7 @@ public class Downloader {
 
 	/**
 	 * Metodo che costruisce il vettore di promoters di un certo evento. 
-	 * @param JSONObject che rappresenta l'evento.
+	 * @param e JSONObject che rappresenta l'evento.
 	 * @return Vettore dei promoters dell'evento.
 	 */
 	public Vector<Promoter> PromotersInfo(JSONObject e) {
@@ -135,7 +135,7 @@ public class Downloader {
 
 		if (promoters == null)
 		{
-			//nel caso in cui il promoter dell'evento non è presente assegnamo i seguenti valori di default
+			//nel caso in cui il promoter dell'evento non e' presente assegnamo i seguenti valori di default
 			name = "default promoter";
 			ID = "000";
 
@@ -163,7 +163,7 @@ public class Downloader {
 
 	/**
 	 * Metodo che restituisce un oggetto della classe Place sulla base del codice postale.
-	 * @param Stringa che rappresenta il codice postale dello stato.
+	 * @param state_code codice postale che identifica lo stato.
 	 * @return Oggetto della classe Place in cui ha luogo l'evento.
 	 */
 	private Place PlaceInfo(String state_code) {
@@ -184,7 +184,7 @@ public class Downloader {
 
 	/**
 	 * Metodo che restituisce un oggetto della classe Genre che rappresenta il genere di un evento.
-	 * @param JSONObject che rappresenta l'evento.
+	 * @param e JSONObject che rappresenta l'evento.
 	 * @return Oggetto della classe Genre che rappresenta il genere dell'evento.
 	 */
 	private Genre GenereInfo(JSONObject e) {

@@ -33,7 +33,7 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 	 * Metodo che ritorna la lista degli eventi di uno stato scelto dall'utente.
 	 * @param state_code codice postale che identifica uno stato.
 	 * @return JSONArray che contiene tutti gli eventi e le relative informazioni.
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
 	 */
 	public JSONArray getEvents(String state_code)throws WrongStateCodeException{
 
@@ -63,7 +63,7 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 	 * Metodo che ritorna la lista di promoter di eventi di uno stato scelto dall'utente.
 	 * @param state_code codice postale che identifica uno stato.
 	 * @return JSONArray che contiene tutti i promoter e le relative informazioni.
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
 	 */
 	public JSONArray getPromoters(String state_code) throws WrongStateCodeException {
 
@@ -122,10 +122,10 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 
 	/**
 	 * Metodo che mi restituisce le statistiche in base ai promoter inseriti dall'utente.
-	 * @param Vettore di stringhe ciascuna rappresentate un ID di un promoter 
-	 *        per il quale si vuole calcolare le statistiche.
+	 * @param ID Vettore di stringhe ciascuna rappresentate un ID di un promoter 
+	 *           per il quale si vuole calcolare le statistiche.
 	 * @return JSONArray che contiene le statistiche per ognuno dei promoter inseriti.
-	 * @throws WrongIdPromoterException se si è inserito un ID che non corrisponde a un promoter.
+	 * @throws WrongIdPromoterException se si e' inserito un ID che non corrisponde a un promoter.
 	 * @throws EmptyFieldExcetpion se i campi del body non sono stati inseriti.
 	 */
 	public JSONArray getStatsPromoters(Vector<String> ID) throws WrongIdPromoterException, EmptyFieldExcetpion {
@@ -196,10 +196,10 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 	/**
 	 * Metodo che mi restituisce in base al parametro specificato dall'utentre nel body 
 	 * la lista degli eventi o le statistiche filtrate.
-	 * @param JSONObject body della richiesta inserito dall'utente.
+	 * @param filters JSONObject corpo della richiesta inserito dall'utente.
 	 * @return JSONArray.
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
-	 * @throws WrongPeriodException se il numero immesso non è valido come periodo.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
+	 * @throws WrongPeriodException se il numero immesso non e' valido come periodo.
 	 * @throws EmptyFieldExcetpion se i campi del body non sono stati inseriti.
 	 * @throws ParamException se viene inserita una stringa errata come param.	 
 	 */
@@ -214,7 +214,7 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 				&& !filters.containsKey("periodo"))
 			throw new EmptyFieldExcetpion();
 		if(!filters.containsKey("param"))
-			throw new EmptyFieldExcetpion("Il parametro è un campo obbligatorio");
+			throw new EmptyFieldExcetpion("Il parametro e' un campo obbligatorio");
 
 		Filter f = new Filter();
 
@@ -250,7 +250,7 @@ public class TicketMasterServiceImpl implements TicketMasterService {
 
 			}
 			else
-				throw new ParamException("Il parametro specificato non è tra quelli disponibili");
+				throw new ParamException("Il parametro specificato non e' tra quelli disponibili");
 
 			return ja;
 	}

@@ -23,7 +23,7 @@ public class ParamException extends Exception {
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Stringa che rappresenta il messaggio di errore.
+	 * @param message Stringa che rappresenta il messaggio di errore.
 	 */
 	public ParamException(String message) {
 		super();

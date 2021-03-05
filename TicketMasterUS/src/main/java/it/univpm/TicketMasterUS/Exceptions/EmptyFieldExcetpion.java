@@ -1,7 +1,7 @@
 package it.univpm.TicketMasterUS.Exceptions;
 
 /**
- * Classe che implementa un metodo per lanciare un eccezione quando uno o più campi  campo del body sono vuoti.
+ * Classe che implementa un metodo per lanciare un eccezione quando uno o piu' campi  campo del body sono vuoti.
  * 
  * @author Alice Moretti
  * @author Arianna Ronci
@@ -17,12 +17,12 @@ public class EmptyFieldExcetpion extends Exception {
 	 * Costrutture dell'oggetto.
 	 */
 	public EmptyFieldExcetpion() {
-		super("Uno o più campi della richiesta sono vuoti.");
+		super("Uno o piu' campi della richiesta sono vuoti.");
 	}
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Stringa che rappresenta il messaggio di errore.
+	 * @param message Stringa che rappresenta il messaggio di errore.
 	 */
 	public EmptyFieldExcetpion(String message) {
 		super();

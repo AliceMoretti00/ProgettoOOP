@@ -17,7 +17,7 @@ public class WrongStateCodeException extends Exception {
 	 * Costrutture dell'oggetto.
 	 */
 	public WrongStateCodeException() {
-		super("Lo statecode inserito non è tra quelli disponibili\n"
+		super("Lo statecode inserito non e' tra quelli disponibili\n"
 				+ "Gli stateCode disponibili sono: \nCA(California),\nFL(Florida),\nMa(Massachusetts),\nNY(New York)");
 	}
 

@@ -40,9 +40,9 @@ public class Filter {
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Vettore di Stringhe ciascuna rappresentante uno state code per cui si vuole filtrare.
-	 * @param Vettore di Stringhe ciascuna rappresentante uno genere di eventi per cui si vuole filtrare.
-	 * @param Vettore di Stringhe ciascuna rappresentante un ID di un promoter di eventi cui si vuole filtrare.
+	 * @param filterState Vettore di Stringhe ciascuna rappresentante uno state code per cui si vuole filtrare.
+	 * @param filterGenre Vettore di Stringhe ciascuna rappresentante uno genere di eventi per cui si vuole filtrare.
+	 * @param filterPromoter Vettore di Stringhe ciascuna rappresentante un ID di un promoter di eventi cui si vuole filtrare.
 	 */
 	public Filter(Vector<String> filterState, Vector<String> filterGenre, Vector<String> filterPromoter) {
 		super();
@@ -111,16 +111,16 @@ public class Filter {
 
 	/**
      * Metodo che permette di settare  il periodo per cui si vuole filtrare.
-     * @param periodo per cui si vuole filtrare.
+     * @param filterPeriod periodo per cui si vuole filtrare.
      */
 	public void setFilterPeriod(long filterPeriod) {
 		this.filterPeriod = filterPeriod;
 	}
 
 	/**
-     * Metodo che restitusce un vettore di stringhe ciascuna rappresentante 
+     * Metodo che restitusce un vettore di Stringhe ciascuna rappresentante 
      * uno state code corrispondente allo stato per cui si vuole filtrare.
-     * @return Vettore di stringhe ciascuna rappresentante uno state code corrispondente ad uno stato.
+     * @return Vettore di Stringhe ciascuna rappresentante uno state code corrispondente ad uno stato.
      */
 	public Vector<String> getFilterState() {
 		return filterState;
@@ -128,16 +128,16 @@ public class Filter {
 
 	/**
      * Metodo che permette di settare gli stati per pui si vuole filtrare.
-     * @param Vettore di stringhe ciascuna rappresentante uno state code corrispondente ad uno stato.
+     * @param filterState Vettore di Stringhe ciascuna rappresentante uno state code corrispondente ad uno stato.
      */
 	public void setFilterState(Vector<String> filterState) {
 		this.filterState = filterState;
 	}
 
 	/**
-     * Metodo che restitusce un vettore di stringhe ciascuna rappresentante 
+     * Metodo che restitusce un vettore di Stringhe ciascuna rappresentante 
      * un genere per cui si vuole filtrare.
-     * @return Vettore di stringhe ciascuna rappresentante il nome di un genere di eventi.
+     * @return Vettore di Stringhe ciascuna rappresentante il nome di un genere di eventi.
      */
 	public Vector<String> getFilterGenre() {
 		return filterGenre;
@@ -145,16 +145,16 @@ public class Filter {
 	
 	/**
      * Metodo che permette di settare i generi per pui si vuole filtrare.
-     * @param Vettore di stringhe ciascuna rappresentante il nome di un genere di eventi.
+     * @param filterGenre Vettore di Stringhe ciascuna rappresentante il nome di un genere di eventi.
      */
 	public void setFilterGenre(Vector<String> filterGenre) {
 		this.filterGenre = filterGenre;
 	}
 
 	/**
-     * Metodo che restitusce un vettore di stringhe ciascuna rappresentante 
+     * Metodo che restitusce un vettore di Stringhe ciascuna rappresentante 
      * un id corrispondente a un promoter per cui si vuole filtrare.
-     * @return Vettore di stringhe ciascuna rappresentante un id corrispondente a un promoter.
+     * @return Vettore di Stringhe ciascuna rappresentante un id corrispondente a un promoter.
      */
 	public Vector<String> getFilterPromoter() {
 		return filterPromoter;
@@ -162,7 +162,7 @@ public class Filter {
 
 	/**
      * Metodo che permette di settare i promoters per pui si vuole filtrare.
-     * @param Vettore di stringhe ciascuna rappresentante un id corrispondente a un promoter.
+     * @param filterPromoter Vettore di Stringhe ciascuna rappresentante un id corrispondente a un promoter.
      */
 	public void setFilterPromoter(Vector<String> filterPromoter) {
 		this.filterPromoter = filterPromoter;
@@ -179,7 +179,7 @@ public class Filter {
 
 	/**
      * Metodo che permette di settare il vettore di eventi filtrati.
-     * @param Vettore di eventi.
+     * @param filteredEvent Vettore di eventi.
      */
 	public void setFilteredEvent(Vector<Event> filteredEvent) {
 		this.filteredEvent = filteredEvent;

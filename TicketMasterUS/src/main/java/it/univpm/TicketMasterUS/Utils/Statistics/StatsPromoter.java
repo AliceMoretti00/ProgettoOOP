@@ -22,7 +22,7 @@ public class StatsPromoter implements Stats {
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Vettore di eventi.
+	 * @param events_stats Vettore di eventi.
 	 */
 	public StatsPromoter(Vector<Event> events_stats) {
 		super();
@@ -31,8 +31,8 @@ public class StatsPromoter implements Stats {
 
 	/**
 	 * Costrutture dell'oggetto.
-	 * @param Vettore di eventi.
-	 * @param Stringa rappresentante un id di un promoter.
+	 * @param e Vettore di eventi.
+	 * @param id_promoter Stringa rappresentante un id di un promoter.
 	 */
 	public StatsPromoter(Vector<Event> e, String id_promoter) {
 		super();

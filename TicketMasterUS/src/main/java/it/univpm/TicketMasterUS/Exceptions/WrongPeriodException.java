@@ -17,7 +17,7 @@ public class WrongPeriodException extends Exception {
 	 * Costrutture dell'oggetto.
 	 */
 	public WrongPeriodException() {
-		super("Il periodo specificato non è valido\n" +
+		super("Il periodo specificato non e' valido\n" +
 				"E' consentito inserire un valore tra 1 e 6 che rappresenta il numero di mesi");
 	}
 

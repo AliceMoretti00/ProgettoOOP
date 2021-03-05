@@ -19,7 +19,7 @@ import it.univpm.TicketMasterUS.Service.Parser;
 import it.univpm.TicketMasterUS.Service.TicketMasterService;
 
 /**
- * Classe che gestisce tutte le chiamate al server che il client può fare.
+ * Classe che gestisce tutte le chiamate al server che il client puo' fare.
  * 
  * @author Alice Moretti
  * @author Arianna Ronci
@@ -36,7 +36,7 @@ public class Controller {
 	 * 
 	 * @param state_code codice postale che identifica lo stato di cui si richiede l'elenco degli eventi futuri.
 	 * @return elenco degli eventi futuri che si terranno in quello stato specificato.
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
 	 */
 	@GetMapping(value="/events")
 	public ResponseEntity<Object> getEvents(@RequestParam(name="statecode", defaultValue= "NY") String state_code) throws WrongStateCodeException
@@ -50,7 +50,7 @@ public class Controller {
 	 * 
 	 * @param state_code codice postale che identifica lo stato di cui si richiede l'elenco degli eventi futuri.
 	 * @return elenco dei promoter che sponsorizzano eventi nello stato specificato.
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
 	 */
 	@GetMapping(value="/promoters")
 	public ResponseEntity<Object> getPromoters(@RequestParam(name="statecode", defaultValue= "NY") String state_code) throws WrongStateCodeException
@@ -103,10 +103,10 @@ public class Controller {
 	 *      ]
 	 *  }
 	 * 
-	 * @param body è un JSONObject come indicato.
+	 * @param body e' un JSONObject come indicato.
 	 * @return statistiche per ciascuno dei promoter scelti dell'utente.
 	 * 
-	 * @throws WrongIdPromoterException se si è inserito un ID che non corrisponde a un promoter.
+	 * @throws WrongIdPromoterException se si e' inserito un ID che non corrisponde a un promoter.
 	 * @throws EmptyFieldExcetpion se i campi del body non sono stati inseriti.
 	 * @throws ParseException
 	 */
@@ -165,15 +165,15 @@ public class Controller {
 	 *     "param": "event",
 	 *     "period": 1
 	 *  }
-	 * (non è necessario che tutti i campi siano presenti; è possibile filtrare solo sulla base di alcune voci,
-	 * ma è necessario che almeno uno dei campi sia inserito e che sia specificato il capo param)
+	 * (non e' necessario che tutti i campi siano presenti; e' possibile filtrare solo sulla base di alcune voci,
+	 * ma e' necessario che almeno uno dei campi sia inserito e che sia specificato il capo param)
 	 * 
-	 * @param body è un JSONObject come indicato.
-	 * @return JSONArray che contiene ciò che viene richiesto dall'utente filtrato sulla base dei campi del body.
+	 * @param body e' un JSONObject come indicato.
+	 * @return JSONArray che contiene cio' che viene richiesto dall'utente filtrato sulla base dei campi del body.
 	 * @throws EmptyFieldExcetpion se nessuno dei campi del body sono stati inseriti.
-	 * @throws WrongPeriodException se il numero immesso non è valido come periodo.
+	 * @throws WrongPeriodException se il numero immesso non e' valido come periodo.
 	 * @throws ParamException se viene inserita una stringa errata come param.	 
-	 * @throws WrongStateCodeException se si è inserito un state code non ammesso.
+	 * @throws WrongStateCodeException se si e' inserito un state code non ammesso.
 	 * @throws ParseException
 	 */
 	@PostMapping(value="/filteredStats")

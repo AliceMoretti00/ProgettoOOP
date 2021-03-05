@@ -95,7 +95,7 @@ public class Event {
 
 	/**
      * Metodo che permette di settare l'url della pagina web dell'evento.
-     * @param Stringa che rappresenta l'url.
+     * @param url Stringa che rappresenta l'url.
      */
 	public void setUrl(String url) {
 		this.url = url;
@@ -111,7 +111,7 @@ public class Event {
 
 	/**
      * Metodo che permette di settare la data dell'evento.
-     * @param Stringa che rappresenta la data dell'evento.
+     * @param data Stringa che rappresenta la data dell'evento.
      */
 	public void setData(String data) {
 		this.data = data;
@@ -127,7 +127,7 @@ public class Event {
 
 	/**
      * Metodo che permette di settare i promoters dell'evento.
-     * @param Vettore di oggetti della classe Promoter.
+     * @param promoters Vettore di oggetti della classe Promoter.
      */
 	public void setPromoters(Vector<Promoter> promoters) {
 		this.promoters = promoters;
@@ -143,7 +143,7 @@ public class Event {
 
 	/**
      * Metodo che permette di settare il luogo dell'evento.
-     * @param oggetto della classe Place.
+     * @param place oggetto della classe Place.
      */
 	public void setPlace(Place place) {
 		this.place = place;
@@ -159,7 +159,7 @@ public class Event {
 
 	/**
      * Metodo che permette di settare il genere dell'evento.
-     * @param oggetto della classe Genre.
+     * @param genre oggetto della classe Genre.
      */
 	public void setGenre(Genre genre) {
 		this.genre = genre;
@@ -188,7 +188,7 @@ public class Event {
 	
 	/**
 	 * Override del metodo equals (ereditato dalla classe Object).
-	 * @param oggetto della classe Event da confrontare.
+	 * @param obj oggetto della classe Event da confrontare.
 	 * @return boolean che assume valore true o false a seconda che i due oggetti siano uguali o meno.
 	 */
 	@Override

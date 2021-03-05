@@ -40,7 +40,7 @@ public class Promoter {
 
 	/**
      * Metodo che permette di settare il nome del promoter di un evento.
-     * @param Stringa che rappresenta il nome del promoter. 
+     * @param name Stringa che rappresenta il nome del promoter. 
      */
 	public void setName(String name) {
 		this.name = name;
@@ -56,7 +56,7 @@ public class Promoter {
 
 	/**
      * Metodo che permette di settare l'ID del promoter di un evento.
-     * @param Stringa che rappresenta l'ID del promoter.
+     * @param ID Stringa che rappresenta l'ID del promoter.
      */
 	public void setID(String ID) {
 		this.ID = ID;

@@ -2,7 +2,7 @@ package it.univpm.TicketMasterUS.Exceptions;
 
 /**
  * Classe che implementa un metodo per lanciare un eccezione quando viene inserito nel corpo di una richiesta
- * uno o più IDPromoter non validi.
+ * uno o piu' IDPromoter non validi.
  * 
  * @author Alice Moretti
  * @author Arianna Ronci
@@ -17,7 +17,7 @@ public class WrongIdPromoterException extends Exception {
 	 * Costrutture dell'oggetto.
 	 */
 	public WrongIdPromoterException() {
-		super("uno o più ID inseriti non corrisponde a nessun promoter tra quelli che sponzorizzano eventi.");
+		super("Uno o piu' ID inseriti non corrisponde a nessun promoter tra quelli che sponzorizzano eventi.");
 	}
 
 }

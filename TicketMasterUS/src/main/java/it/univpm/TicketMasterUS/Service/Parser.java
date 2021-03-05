@@ -19,7 +19,7 @@ public class Parser {
 	
 	/**
 	 * Metodo che permette di costruire un JSONObject corrispondente a un oggetto della classe Event.
-	 * @param oggetto della classe Event dal quale si vuole ottenere un JSONObject.
+	 * @param event oggetto della classe Event dal quale si vuole ottenere un JSONObject.
 	 * @return JSONObject che rappresenta l'evento.
 	 */
 	public JSONObject eventToJSONObject(Event event) {
@@ -58,8 +58,8 @@ public class Parser {
 	}
 
 	/**
-	 * Metodo che permette di costruire un vettore di stringhe rappresentanti state code a partire da JSONObject.
-	 * @param JSONObject.
+	 * Metodo che permette di costruire un vettore di Stringhe rappresentanti state code a partire da JSONObject.
+	 * @param obj JSONObject.
 	 * @return Vettore di Stringhe ciascuna rappresentante uno state code.
 	 */
 	public Vector<String> infoStete(JSONObject obj)throws WrongStateCodeException{
@@ -84,7 +84,7 @@ public class Parser {
 
 	/**
 	 * Metodo che permette di costruire un vettore di Promoter a partire da JSONObject.
-	 * @param JSONObject.
+	 * @param obj JSONObject.
 	 * @return Vettore di Promoter.
 	 */
 	public Vector<String> infoPromoter(JSONObject obj) {
@@ -106,9 +106,9 @@ public class Parser {
 	}
 	
 	/**
-	 * Metodo che permette di costruire un vettore di stringhe rappresentanti generi a partire da JSONObject.
-	 * @param JSONObject.
-	 * @return vettore di Stringhe ciascuna rappresentante il nome di un genere.
+	 * Metodo che permette di costruire un vettore di Stringhe rappresentanti generi a partire da JSONObject.
+	 * @param obj JSONObject.
+	 * @return Vettore di Stringhe ciascuna rappresentante il nome di un genere.
 	 */
 	public Vector<String> infoGenre(JSONObject obj){
 

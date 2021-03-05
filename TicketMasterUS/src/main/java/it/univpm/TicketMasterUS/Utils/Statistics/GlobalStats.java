@@ -16,6 +16,7 @@ public class GlobalStats {
 
 	/**
 	 * Metodo che calcola gli stato con il maggiore e con il minor numero di eventi nell'arco di un mese.
+	 * @param e Vettori di eventi in tutti gli stati considerati.
 	 * @return JSONObject che rappresenta gli stati con il minore e il maggior numero di eventi.
 	 */
 	public JSONObject min_maxEvent(Vector<Event> e) {

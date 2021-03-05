@@ -48,7 +48,7 @@ public class Place {
 
 	/**
 	 * Metodo che permette di settare il nome di uno stato.
-	 * @param Stringa che rappresenta il nome di uno stato.
+	 * @param state Stringa che rappresenta il nome di uno stato.
 	 */
 	public void setState(String state) {
 		this.state = state;
@@ -64,7 +64,7 @@ public class Place {
 
 	/**
 	 * Metodo che permette di settare lo statecode di uno stato.
-	 * @param Stringa che rappresenta lo statecode di uno stato.
+	 * @param state_code Stringa che rappresenta lo statecode di uno stato.
 	 */
 	public void setState_code(String state_code) {
 		this.state_code = state_code;
