@@ -39,27 +39,27 @@ N° | Tipo | Rotta | Descrizione
 [6](#6) | ` POST ` | `/filteredStats` | *restituisce un JSONArray che contiene informazioni sulle statistiche, filtrate in base alla scelta dell'utente*
 
 ## 1.   /events
-La prima rotta restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano le informazioni sugli eventi. Nel caso in cui non venga specificato lo stateCode dall'utente, l'applicazione restituisce i dati relativi a New York.
-La rotta genera un'eccezione se non viene inserito uno degli state code seguenti: 
+La prima rotta è di tipo GET e restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano le informazioni sugli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
+La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
 1. CA per la California
 2. FL per la Florida
 3. MA per il Massachusetts
 4. NY per New York
 
-![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/getEvents.jpeg)
+![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/getEvents.jpeg)
 
 ## 2.   /promoters
-La seconda rotta restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano Id e nome del promoter che sponsorizzano gli eventi. Nel caso in cui non venga specificato lo stateCode dall'utente, l'applicazione restituisce i dati relativi a New York.
-La rotta genera un'eccezione se non viene inserito uno degli state code seguenti: 
+La seconda rotta è di tipo GET e  restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano ID e nome del promoter che sponsorizzano gli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
+La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
 1. CA per la California
 2. FL per la Florida
 3. MA per il Massachusetts
 4. NY per New York
 
-![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/getPromoters.jpeg)
+![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/getPromoters.jpeg)
 
 ## 3.   /statsState
-La terza rotta è di tipo POST e restituisce le statistiche per ogni stato, in particolare restituisce il numero totale di promoter che sponsorizzano eventi nello stato e il numero di promoter raggruppati per il genere di eventi che sponsorizzano.
+La terza rotta è di tipo POST e restituisce le statistiche per ogni stato, in particolare restituisce il numero totale di promoter che sponsorizzano eventi in quello stato e il numero di promoter raggruppati per il genere di eventi che sponsorizzano.
 La risposta è un JSONArray di questo tipo:
 ```
 [
@@ -110,16 +110,16 @@ La quinta rotta è di tipo POST e richiede un body del seguente tipo:
 ```
 * *Promoter* è un JSONArray contenente gli ID di uno o più promoter rispetto ai quali si vuole fare la statistica. 
 
-Per ogni promoter vengono restituiti il numero di eventi totali, il numero di eventi per ogni genere e il numero di stati in cui il promoter sponsorizza l'evento.
+Per ogni promoter inserito vengono restituiti il numero di eventi totali, il numero di eventi per ogni genere e il numero di stati in cui il promoter sponsorizza un evento.
 Possono essere generate le seguenti eccezioni:
 * Se uno o più ID del promoter non sono validi viene generata un'eccezione del tipo **WrongIdPromoterException** che restituisce un messaggio di questo tipo:
 ```
 Uno o più ID inseriti non corrisponde a nessun promoter tra quelli che sponsorizzano eventi.
 ```
 
-* Se uno o più campi del body sono vuoti viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
+* Se il campo del body viene lasciato vuoto viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
 ```
-Uno o più campi sono vuoti.
+Devi inserire almeno un ID.
 ```
 
 Se la richiesta ha successo l'utente riceverà un JSONArray di questo tipo:
@@ -173,13 +173,13 @@ La sesta rotta è di tipo POST e richiede un body del seguente tipo:
 }
 ```
 
-* *Promoter* è il JSONArray che contiene gli Id dei promoter
+* *Promoter* è il JSONArray che contiene gli ID dei promoter
 * *Genre* è il JSONArray che contiene i nomi dei generi degli eventi
-* *State* è il JSONObject che contiene lo state code 
-* *param* indica il parametro su cui si vuole fare la statistica
-* *period* indica i mesi
+* *State* è il JSONObject che contiene gli state code 
+* *param* rappresenta l'informazione che si vuole filtrare
+* *period* rappresenta il numero di mesi 
 
-La rotta permette di filtrare solo sulla base di alcune delle voci precedenti, è sufficiente inserire almeno un campo e specificare il param.
+La rotta permette di filtrare sulla base di una o tutte le voci precedenti; in ogni caso è necessario inserire almeno un campo e specificare il param.
 Possono essere generate le seguenti eccezioni:
 * Se viene inserito uno state code diverso da "CA", "FL", "MA", "NY viene generata un'eccezione del tipo **WrongStateCodeException** che restituisce un messaggio di questo tipo:
 ```
@@ -194,6 +194,10 @@ NY(New York)
 ```
 Uno o più campi sono vuoti.
 ```
+* In particolare se il campo param non viene inserito viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
+```
+Il parametro e' un campo obbligatorio.
+```
 
 * Se viene inserito un periodo non compreso tra 1 e 6 viene generata un'eccezione del tipo **WrongPeriodException** che restituisce un messaggio di questo tipo:
 ```
@@ -201,36 +205,14 @@ Il periodo specificato non è valido
 E' consentito inserire un valore tra 1 e 6 che rappresenta il nuumero di mesi.
 ```
 
-* Se viene inserito un parametro non valido viene generata un'eccezione del tipo **ParamException** che restituisce un messaggio di questo tipo:
+* Le informazioni che è possibile filtrare sono l'elenco degli eventi e le statistiche; nel primo caso va compilato il campo param con la stringa "event", nel secondo caso con una delle stringhe "stastatsState" o "statsPromoter".
+Se il campo param viene compilato con una stringa diversa da queste viene generata un'eccezione del tipo **ParamException** che restituisce un messaggio di questo tipo:
 ```
-Il parametro specificato non è valido.
+Il parametro specificato non e' tra quelli disponibili.
 ```
 
-Se la richiesta ha successo. l'utente riceverà un JSONArray di questo tipo:
-```
- [
-    {
-      "data": "2021-04-09",
-      "name": "Stephen Marley",
-      "genre": {
-          "name genre": "Music",
-          "ID genre": "KZFzniwnSyZfZ7v7nJ"
-      },
-      "place": {
-          "state": "Massachusetts",
-          "state code": "MA"
-      },
-      "promoters": [
-          {
-              "ID promoter": "494",
-              "name promoter": "PROMOTED BY VENUE"
-          }
-      ],
-      "url": "https://www.ticketmaster.com/postmodern-jukebox-beverly-massachusetts-10-14-2021/event/0100578212B89B61"
-    },
-    ...
- ]
-```
+Se la richiesta ha successo, l'utente riceverà un JSONArray che, in base al valore specificato come paramentro, restituirà l'elenco degli eventi filtrati o le statistiche filtrate.
+
 
 ### Autori
 Progetto realizzato da:
