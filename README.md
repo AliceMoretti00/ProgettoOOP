@@ -1,9 +1,19 @@
 # ProgettoOOP
 
+## Scaletta
+1. [Introduzione](#intro)
+2. [Diagrammi UML](#uml)
+3. [Rotte](#rotte)
+4. [Test](#test)
+5. [Autori](#autori)
+
+<a name="intro"></a>
 ## Introduzione
 L'applicazione TicketMasterUS permette all'utente di ottenere informazioni relative agli eventi che avranno luogo negli USA, in particolare nelle città California, Florida, Massachusetts e New York. L'applicazione fornisce dati relativi agli eventi e ai promoter che li sponsorizzano, inoltre l'utente può visualizzare le statistiche su questi dati, con la possibilità di applicare dei filtri al momento della ricerca.
 
+<a name="uml"></a>
 ## Diagrammi UML
+
 ### Use Case Diagram
 ![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Use%20Case%20Diagram.jpg)
 
@@ -23,7 +33,9 @@ L'applicazione TicketMasterUS permette all'utente di ottenere informazioni relat
 ![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Exception.jpg)
 
 ### Sequence Diagram
+![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Sequence%20Diagram.jpg)
 
+<a name="rotte"></a>
 ## Rotte
 L'utente può effettuare le richieste da Postman tramite l'indirizzo:
 ```
@@ -38,6 +50,7 @@ N° | Tipo | Rotta | Descrizione
 [5](#5) | ` POST ` | `/statsPromoter` | *restituisce un JSONArray contenente le statistiche in base a uno o più promoter, in particolare il numero di eventi totali, di eventi per genere e il numero di stati in cui il promoter sponsorizza l'evento .*
 [6](#6) | ` POST ` | `/filteredStats` | *restituisce un JSONArray che contiene informazioni sulle statistiche, filtrate in base alla scelta dell'utente*
 
+<a name=1></a>
 ## 1.   /events
 La prima rotta è di tipo GET e restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano le informazioni sugli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
 La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
@@ -48,6 +61,7 @@ La rotta può generare un'eccezione **WrongStateCodeException** se non viene ins
 
 ![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/getEvents.jpeg)
 
+<a name=2></a>
 ## 2.   /promoters
 La seconda rotta è di tipo GET e  restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano ID e nome del promoter che sponsorizzano gli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
 La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
@@ -58,6 +72,7 @@ La rotta può generare un'eccezione **WrongStateCodeException** se non viene ins
 
 ![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/getPromoters.jpeg)
 
+<a name=3></a>
 ## 3.   /statsState
 La terza rotta è di tipo POST e restituisce le statistiche per ogni stato, in particolare restituisce il numero totale di promoter che sponsorizzano eventi in quello stato e il numero di promoter raggruppati per il genere di eventi che sponsorizzano.
 La risposta è un JSONArray di questo tipo:
@@ -78,6 +93,7 @@ La risposta è un JSONArray di questo tipo:
 ]
 ```
 
+<a name=4></a>
 ## 4.   /globalStats
 La quarta rotta è di tipo POST e restituisce lo stato con il numero minimo e massimo di eventi nel prossimo mese e lo stato con il numero minimo e massimo di promoter di eventi.
 La risposta è un JSONArray di questo tipo:
@@ -94,6 +110,7 @@ La risposta è un JSONArray di questo tipo:
 ]
 ```
 
+<a name=5></a>
 ## 5.   /statsPromoter
 La quinta rotta è di tipo POST e richiede un body del seguente tipo:
 ```
@@ -141,6 +158,7 @@ Se la richiesta ha successo l'utente riceverà un JSONArray di questo tipo:
 ]
 ```
 
+<a name=6></a>
 ## 6.   /filteredStats
 La sesta rotta è di tipo POST e richiede un body del seguente tipo:
 ```
@@ -213,7 +231,16 @@ Il parametro specificato non e' tra quelli disponibili.
 
 Se la richiesta ha successo, l'utente riceverà un JSONArray che, in base al valore specificato come paramentro, restituirà l'elenco degli eventi filtrati o le statistiche filtrate.
 
+<a name="test"></a>
+## Test
+Il programma prevede anche una sezione di testing:
+* Test relativi al package Service:
+    * Test 1: verifica la corretta generazione dell'eccezione WrongStateCodeException
+    * Test 2: verifica che il metodo eventToJSONObject effettui correttamente il parsing
+* Test relativi al package Statistic: 
+    * Test 3: verifica il corretto funzionamento del metodo calcoloTot
 
+<a name="autori"></a>
 ### Autori
 Progetto realizzato da:
 - Alice Moretti
