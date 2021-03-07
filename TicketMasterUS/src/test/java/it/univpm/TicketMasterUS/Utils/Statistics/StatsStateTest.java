@@ -36,7 +36,7 @@ public class StatsStateTest {
 	}
 
 	/**
-	 * Test che verifica il corretto funzionamento del metodo calcoloTot
+	 * Test che verifica il corretto funzionamento del metodo calcoloTot 
 	 */
 	@Test
 	@DisplayName("Corretto funzionamento del metodo calcoloTot")
