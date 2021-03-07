@@ -5,10 +5,10 @@ L'applicazione TicketMasterUS permette all'utente di ottenere informazioni relat
 
 ## Diagrammi UML
 ### Use Case Diagram
-![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/Use%20Case%20Diagram.jpg)
+![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Use%20Case%20Diagram.jpg)
 
 ### Class Diagram
-![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/Class%20Diagram.jpg)
+![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Class%20Diagram.jpg)
 
 * it.univpm.TicketMasterUS.Models
 ![alt text](https://github.com/AliceMoretti00/ProgettoOOP/blob/main/UML/Models.jpg)
