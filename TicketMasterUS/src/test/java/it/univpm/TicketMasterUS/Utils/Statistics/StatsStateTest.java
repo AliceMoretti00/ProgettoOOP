@@ -10,8 +10,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import it.univpm.TicketMasterUS.Models.Event;
+import it.univpm.TicketMasterUS.Models.Genre;
+import it.univpm.TicketMasterUS.Models.Place;
+import it.univpm.TicketMasterUS.Models.Promoter;
 
 public class StatsStateTest {
+	Vector<Promoter> promoter;
+	Promoter prom;
+	Place place;
+	Genre genre;
 	Vector<Event> event;
 	StatsState stats;
 	int num;
@@ -24,6 +31,9 @@ public class StatsStateTest {
 	void setUp() throws Exception{
 		event = new Vector<>();
 		stats = new StatsState(event);
+		promoter = new Vector<>();
+		place = new Place("Florida", "FL");
+		genre = new Genre("KND", "Sports");
 	}
 
 	/**
@@ -41,7 +51,13 @@ public class StatsStateTest {
 	@Test
 	@DisplayName("Corretto funzionamento del metodo calcoloTot")
 	void infoPromoterTest() {
+		prom = new Promoter("NHL REGULAR SEASON", "656");
+		promoter.add(prom);
+		
+		Event e = new Event("Florida vs Detroit", "https://www.ticketmaster.com", "2021-03-06", promoter, place, genre);
+		event.add(e);
+		
 		num = stats.calcoloTot();
-		assertEquals(num,0);
+		assertEquals(num,1);
 	}
 }
