@@ -52,7 +52,13 @@ N° | Tipo | Rotta | Descrizione
 
 <a name=1></a>
 ## 1.   /events
-La prima rotta è di tipo GET e restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano le informazioni sugli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
+La prima rotta è di tipo GET e restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano le informazioni sugli eventi. 
+Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
+Nel caso in cui il promoter dell'evento non sia presente, vengono assegnati i seguenti valori di default:
+```
+"ID promoter" : "000",
+"name promoter" : "default promoter
+```
 La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
 1. CA per la California
 2. FL per la Florida
@@ -64,6 +70,11 @@ La rotta può generare un'eccezione **WrongStateCodeException** se non viene ins
 <a name=2></a>
 ## 2.   /promoters
 La seconda rotta è di tipo GET e  restituisce un JSONArray di questo tipo, cioè contenente i JSONObject che riportano ID e nome del promoter che sponsorizzano gli eventi. Nel caso in cui non venga specificato lo state code dall'utente, l'applicazione restituisce i dati relativi a New York.
+Nel caso in cui il promoter dell'evento non sia presente, vengono assegnati i seguenti valori di default:
+```
+"ID promoter" : "000",
+"name promoter" : "default promoter
+```
 La rotta può generare un'eccezione **WrongStateCodeException** se non viene inserito uno degli state code tra quelli consentiti: 
 1. CA per la California
 2. FL per la Florida
@@ -134,7 +145,7 @@ Possono essere generate le seguenti eccezioni:
 Uno o più ID inseriti non corrisponde a nessun promoter tra quelli che sponsorizzano eventi.
 ```
 
-* Se il campo del body viene lasciato vuoto viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
+* Se il campo del body viene lasciato vuoto viene generata un'eccezione del tipo **EmptyFieldException** che restituisce un messaggio di questo tipo:
 ```
 Devi inserire almeno un ID.
 ```
@@ -208,11 +219,11 @@ FL(Florida)
 MA(Massachussets)
 NY(New York)
 ```
-* Se uno o più campi del body sono vuoti viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
+* Se uno o più campi del body sono vuoti viene generata un'eccezione del tipo **EmptyFieldException** che restituisce un messaggio di questo tipo:
 ```
 Uno o più campi sono vuoti.
 ```
-* In particolare se il campo param non viene inserito viene generata un'eccezione del tipo **EmptyFieldException** che resituisce un messaggio di questo tipo:
+* In particolare se il campo param non viene inserito viene generata un'eccezione del tipo **EmptyFieldException** che restituisce un messaggio di questo tipo:
 ```
 Il parametro e' un campo obbligatorio.
 ```
