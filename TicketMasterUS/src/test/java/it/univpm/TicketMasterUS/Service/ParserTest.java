@@ -17,7 +17,7 @@ import it.univpm.TicketMasterUS.Models.Place;
 import it.univpm.TicketMasterUS.Models.Promoter;
 
 /** 
- * Classe che testa il metodo eventToJSONObject.
+ * Classe che testa il metodo eventToJSONObject. 
  * 
  * @author Alice Moretti
  * @author Arianna Ronci

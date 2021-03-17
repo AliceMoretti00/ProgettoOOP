@@ -15,7 +15,7 @@ import it.univpm.TicketMasterUS.Models.Place;
 import it.univpm.TicketMasterUS.Models.Promoter;
 
 /** 
- * Classe che testa il metodo calcoloTot.
+ * Classe che testa il metodo calcoloTot. 
  * 
  * @author Alice Moretti
  * @author Arianna Ronci
