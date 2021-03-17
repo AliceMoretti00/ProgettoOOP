@@ -12,6 +12,12 @@ import org.junit.jupiter.api.Test;
 import it.univpm.TicketMasterUS.Exceptions.WrongPeriodException;
 import it.univpm.TicketMasterUS.Exceptions.WrongStateCodeException;
 
+/** 
+ * Classe che testa se viene lanciata correttamente l'eccezione WrongStateCodeException.
+ * 
+ * @author Alice Moretti
+ * @author Arianna Ronci
+ */
 public class TicketMasterServiceImplTest {
 	
 	private TicketMasterServiceImpl service;

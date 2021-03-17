@@ -14,6 +14,12 @@ import it.univpm.TicketMasterUS.Models.Genre;
 import it.univpm.TicketMasterUS.Models.Place;
 import it.univpm.TicketMasterUS.Models.Promoter;
 
+/** 
+ * Classe che testa il metodo calcoloTot.
+ * 
+ * @author Alice Moretti
+ * @author Arianna Ronci
+ */
 public class StatsStateTest {
 	Vector<Promoter> promoter;
 	Promoter prom;

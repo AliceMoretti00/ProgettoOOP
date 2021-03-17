@@ -16,6 +16,12 @@ import it.univpm.TicketMasterUS.Models.Genre;
 import it.univpm.TicketMasterUS.Models.Place;
 import it.univpm.TicketMasterUS.Models.Promoter;
 
+/** 
+ * Classe che testa il metodo eventToJSONObject.
+ * 
+ * @author Alice Moretti
+ * @author Arianna Ronci
+ */
 public class ParserTest {
 	Event event;
 	Vector<Promoter> promoter;
@@ -45,6 +51,7 @@ public class ParserTest {
 	void tearDown() throws Exception{
 
 	}
+	
 	/**
 	 * Test che verifica se l'oggetto event viene convertito correttamente in un JSONObject
 	 */

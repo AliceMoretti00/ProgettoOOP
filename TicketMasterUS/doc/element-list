@@ -1,7 +1,2 @@
-it.univpm.TicketMasterUS
-it.univpm.TicketMasterUS.Controller
-it.univpm.TicketMasterUS.Exceptions
-it.univpm.TicketMasterUS.Models
 it.univpm.TicketMasterUS.Service
-it.univpm.TicketMasterUS.Utils.Filters
 it.univpm.TicketMasterUS.Utils.Statistics
